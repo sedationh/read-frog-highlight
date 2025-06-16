@@ -142,12 +142,20 @@ export function getContextAroundRange(range: Range): string {
   }
 }
 
+export function extractEnglish(text: string) {
+  // 匹配连续的英文字母、数字、常用标点
+  const matches = text.match(/[a-z0-9.,'";:!?()\-]+/gi)
+  return matches ? matches.join(' ') : ''
+}
+
 export function createHighlightData(range: Range, highlightColor: string) {
   const highlightId = generateHighlightId()
 
   // 获取开始和结束容器的详细信息
   const startContainer = range.startContainer
   const endContainer = range.endContainer
+
+  const context = extractEnglish(getContextAroundRange(range))
 
   // 构建高亮数据，支持跨元素
   const highlightData: HighlightData = {
@@ -163,7 +171,7 @@ export function createHighlightData(range: Range, highlightColor: string) {
       offset: range.endOffset,
     },
     timestamp: Date.now(),
-    context: getContextAroundRange(range),
+    context,
     pageUrl: buildPageUrl(),
   }
 
