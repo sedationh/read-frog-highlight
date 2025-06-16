@@ -754,9 +754,11 @@ function Highlight() {
         }}
         initialNote={noteDialog.initialNote}
       />
-      <pre className="text-xs max-w-full overflow-x-auto">
-        {JSON.stringify(highlights, null, 2)}
-      </pre>
+      {import.meta.env.DEV && (
+        <pre className="text-xs max-w-full overflow-x-auto">
+          {JSON.stringify(highlights, null, 2)}
+        </pre>
+    )}
     </div>
   )
 }
