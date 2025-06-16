@@ -10,3 +10,5 @@ fi
 pnpm compile
 
 # Check if SKIP_FREE_API environment variable is set
+
+pnpm run build
