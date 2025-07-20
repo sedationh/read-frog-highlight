@@ -105,8 +105,8 @@ export default function FloatingButton() {
           top: `${floatingButton.position * 100}vh`,
         }}
       >
-        <FloatingReadButton />
-        <TranslateButton />
+        {/* <FloatingReadButton /> */}
+        {/* <TranslateButton /> */}
         <div
           className={cn(
             'border-border flex h-10 w-15 items-center rounded-l-full border border-r-0 bg-white opacity-60 shadow-lg group-hover:opacity-100 dark:bg-neutral-900',

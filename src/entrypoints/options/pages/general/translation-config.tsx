@@ -26,7 +26,7 @@ export default function TranslationConfig() {
     <ConfigCard title={i18n.t('options.general.translationConfig.title')} description={i18n.t('options.general.translationConfig.description')}>
       <div className="space-y-4">
         <TranslateProviderSelector />
-        <TranslateModelSelector />
+        {/* <TranslateModelSelector /> */}
         <RangeSelector />
       </div>
     </ConfigCard>

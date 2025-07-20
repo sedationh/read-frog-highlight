@@ -17,7 +17,7 @@ export const NAV_ITEMS = {
     component: ApiKeysPage,
   },
   'translation': {
-    title: 'translation',
+    title: '过滤控制',
     url: '/translation',
     icon: Globe,
     component: TranslationPage,

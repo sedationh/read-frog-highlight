@@ -33,8 +33,8 @@ export default defineBackground(() => {
   })
 
   newUserGuide()
-  translationMessage()
+  // translationMessage()
 
-  setUpRequestQueue()
+  // setUpRequestQueue()
   setupAnkiHandler()
 })
