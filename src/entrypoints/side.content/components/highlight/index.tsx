@@ -426,7 +426,18 @@ function Highlight() {
                           >
                             <button
                               type="button"
-                              onClick={() => scrollToHighlight(highlight)}
+                              onClick={() => {
+                                scrollToHighlight(highlight)
+                                // 当前元素也滚动
+                                const element = containerRef?.current?.querySelector(`[data-highlight-item="${highlight.id}"]`)
+                                if (element) {
+                                  element.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center',
+                                    inline: 'nearest',
+                                  })
+                                }
+                              }}
                               className="flex-1 truncate text-left hover:text-blue-600 transition-colors cursor-pointer font-medium"
                               title="Click to jump to highlight"
                             >
@@ -758,7 +769,7 @@ function Highlight() {
         <pre className="text-xs max-w-full overflow-x-auto">
           {JSON.stringify(highlights, null, 2)}
         </pre>
-    )}
+      )}
     </div>
   )
 }
