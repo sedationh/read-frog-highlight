@@ -279,8 +279,9 @@ export function buildPageUrl() {
   // 需要考虑这种 query 路由
   // https://web.neat-reader.orb.local/epubreader?bookguid=34e724f7-972f-489b-a732-92edab894faf
   const hash = window.location.hash
+  const pathname = window.location.pathname
   // isHash route
-  if (hash.startsWith('#')) {
+  if (pathname === '/' && hash.startsWith('#/')) {
     const hashPath = hash.split('?')[0]
     const hashQuery = hash.split('?')[1]
     return `${window.location.origin + window.location.pathname + hashPath}${hashQuery ? `?${hashQuery}` : ''}`
