@@ -1,6 +1,7 @@
 import type { HighlightData } from '../atoms'
 import nlp from 'compromise'
 import getXPath from 'get-xpath'
+import { isSideOpenAtom, store } from '../atoms'
 
 export function generateHighlightId(): string {
   return `highlight_${Date.now()}`
@@ -269,6 +270,16 @@ export function createHighlightElement(id: string, color: string, selectedText: 
   highlightElement.textContent = selectedText
   highlightElement.setAttribute('data-highlight-id', id)
   highlightElement.setAttribute('data-segment-index', index?.toString() || '')
+
+  // 添加点击处理，切换侧边栏状态
+  highlightElement.addEventListener('click', (event) => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    // 获取当前侧边栏状态并切换
+    const currentIsSideOpen = store.get(isSideOpenAtom)
+    store.set(isSideOpenAtom, !currentIsSideOpen)
+  })
 
   return highlightElement
 }
