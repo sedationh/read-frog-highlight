@@ -277,8 +277,7 @@ export function createHighlightElement(id: string, color: string, selectedText: 
     event.stopPropagation()
 
     // 获取当前侧边栏状态并切换
-    const currentIsSideOpen = store.get(isSideOpenAtom)
-    store.set(isSideOpenAtom, !currentIsSideOpen)
+    store.set(isSideOpenAtom, true)
   })
 
   return highlightElement
